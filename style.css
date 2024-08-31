@@ -1,22 +1,46 @@
+:root {
+    --primary-color: #0056b3;
+    --primary-color-dark: #003d80;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --white-color: #fff;
+    --text-color: #fff;
+    --header-text-color: #fff; /* Color del texto en el header */
+    --text-muted-color: #333;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 8px;
+    --transition-duration: 0.3s;
+}
+
 /* Estilos globales para toda la página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f4f4f4; /* Color de fondo gris claro */
-    color: #333; /* Color de texto gris oscuro */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Elimina el subrayado en los enlaces por defecto */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--header-text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-muted-color);
+}
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Restablece los márgenes y el padding en todos los elementos */
 * {
     box-sizing: border-box;
 }
@@ -24,91 +48,126 @@ a {
 /* Estilos para el encabezado */
 header {
     width: 100%;
-    background-color: #333; /* Fondo oscuro */
-    color: white; /* Texto blanco */
+    background-color: var(--secondary-color); /* Fondo oscuro para asegurar visibilidad del texto */
+    color: var(--header-text-color); /* Color del texto */
     text-align: center;
-    padding: 1rem 0; /* Espaciado superior e inferior */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil debajo del encabezado */
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
-    margin: 0; /* Elimina el margen por defecto */
-    font-size: 2rem; /* Tamaño de fuente grande */
+    font-size: 2rem;
 }
 
 /* Estilos para la sección principal */
 main {
     display: flex;
+    flex-direction: column;
     width: 90%;
     max-width: 1200px;
-    margin-top: 2rem; /* Espaciado superior */
-    margin-bottom: 2rem; /* Espaciado inferior */
-    gap: 1rem; /* Espacio entre las categorías y la galería */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+@media(min-width: 768px) {
+    main {
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
 
 /* Estilos para la sección de categorías */
 #categories {
-    flex: 1;
-    background-color: #fff; /* Fondo blanco */
-    padding: 1rem; /* Espaciado interno */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-    border-radius: 5px; /* Bordes redondeados */
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
 }
 
-/* Estilos para los botones de categoría */
 #categories button {
     display: block;
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem; /* Espacio entre los botones */
-    background-color: #007bff; /* Azul brillante */
-    color: white; /* Texto blanco */
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     border: none;
-    border-radius: 5px; /* Bordes redondeados en los botones */
-    cursor: pointer; /* Cursor de mano para indicar que es un botón clicable */
-    transition: background-color 0.3s; /* Suaviza la transición del color de fondo */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+    font-size: 1rem;
 }
 
-/* Efecto hover para los botones */
 #categories button:hover {
-    background-color: #0056b3; /* Azul más oscuro cuando se pasa el mouse por encima */
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
 }
 
 /* Estilos para la galería de imágenes */
 #gallery {
-    flex: 3;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rejilla flexible para las imágenes */
-    gap: 1rem; /* Espacio entre las imágenes */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
-/* Estilos para cada contenedor de imagen */
 .image-item {
-    background-color: #fff;
-    padding: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para cada imagen */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la animación de transformación y sombra */
+    background-color: var(--white-color);
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
 }
 
-/* Estilos para la imagen en sí */
+.image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .image-item img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 5px; /* Bordes redondeados en las imágenes */
+    border-radius: var(--border-radius);
 }
 
-/* Estilos para la descripción de la imagen */
 .image-item p {
     text-align: center;
-    margin-top: 0.5rem; /* Espacio por encima del texto */
-    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
-    color: #555; /* Color gris medio para el texto */
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--text-muted-color);
 }
 
-/* Efecto hover para las imágenes */
-.image-item:hover {
-    transform: translateY(-5px); /* Desplaza la imagen ligeramente hacia arriba */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Aumenta la sombra para dar un efecto de elevación */
+/* Estilos para el lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-duration);
+    opacity: 0;
+}
+
+#lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#lightbox:focus {
+    outline: none;
 }
