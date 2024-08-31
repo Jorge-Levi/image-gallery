@@ -1,4 +1,4 @@
-/* Estilo general para toda la página */
+/* Estilos globales para toda la página */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,79 +6,109 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Color de fondo gris claro */
+    color: #333; /* Color de texto gris oscuro */
 }
 
-/* Estilo del encabezado */
+/* Elimina el subrayado en los enlaces por defecto */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Restablece los márgenes y el padding en todos los elementos */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos para el encabezado */
 header {
     width: 100%;
-    background-color: #333;
-    color: white;
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0; /* Espaciado superior e inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil debajo del encabezado */
 }
 
-/* Configuración básica para el contenedor principal */
+header h1 {
+    margin: 0; /* Elimina el margen por defecto */
+    font-size: 2rem; /* Tamaño de fuente grande */
+}
+
+/* Estilos para la sección principal */
 main {
     display: flex;
     width: 90%;
     max-width: 1200px;
-    margin-top: 2rem;
+    margin-top: 2rem; /* Espaciado superior */
+    margin-bottom: 2rem; /* Espaciado inferior */
+    gap: 1rem; /* Espacio entre las categorías y la galería */
 }
 
-/* Estilo para la sección de categorías */
+/* Estilos para la sección de categorías */
 #categories {
     flex: 1;
-    margin-right: 1rem;
-    background-color: #fff;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Fondo blanco */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
-/* Estilo de los botones de categoría */
+/* Estilos para los botones de categoría */
 #categories button {
     display: block;
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    background-color: #007bff;
-    color: white;
+    margin-bottom: 0.5rem; /* Espacio entre los botones */
+    background-color: #007bff; /* Azul brillante */
+    color: white; /* Texto blanco */
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 5px; /* Bordes redondeados en los botones */
+    cursor: pointer; /* Cursor de mano para indicar que es un botón clicable */
+    transition: background-color 0.3s; /* Suaviza la transición del color de fondo */
 }
 
-/* Efecto hover en los botones de categoría */
+/* Efecto hover para los botones */
 #categories button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Azul más oscuro cuando se pasa el mouse por encima */
 }
 
-/* Estilo para la galería de imágenes */
+/* Estilos para la galería de imágenes */
 #gallery {
     flex: 3;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Rejilla flexible para las imágenes */
+    gap: 1rem; /* Espacio entre las imágenes */
 }
 
-/* Estilo de las imágenes y su contenedor */
+/* Estilos para cada contenedor de imagen */
 .image-item {
     background-color: #fff;
     padding: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para cada imagen */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la animación de transformación y sombra */
 }
 
-/* Configuración de imágenes dentro de sus contenedores */
+/* Estilos para la imagen en sí */
 .image-item img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 5px; /* Bordes redondeados en las imágenes */
 }
 
-/* Estilo para el pie de imagen */
+/* Estilos para la descripción de la imagen */
 .image-item p {
     text-align: center;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #555;
+    margin-top: 0.5rem; /* Espacio por encima del texto */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+    color: #555; /* Color gris medio para el texto */
+}
+
+/* Efecto hover para las imágenes */
+.image-item:hover {
+    transform: translateY(-5px); /* Desplaza la imagen ligeramente hacia arriba */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Aumenta la sombra para dar un efecto de elevación */
 }
